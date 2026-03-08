@@ -68,9 +68,11 @@ const ElariaAI = () => {
       const aiMsg = { sender: 'elaria', text: res.data.reply, timestamp: new Date() };
       setMessages(prev => [...prev, aiMsg]);
     } catch (err) {
-      setMessages(prev => [...prev, { 
-        sender: 'elaria', 
-        text: 'Oh petals! Something bloomed wrong. Could you ask again? 🌸',
+      const serverMsg = err.response?.data?.error;
+      const fallback = 'Oh petals! Something bloomed wrong. Could you try again? 🌸';
+      setMessages(prev => [...prev, {
+        sender: 'elaria',
+        text: typeof serverMsg === 'string' ? serverMsg : fallback,
         timestamp: new Date()
       }]);
     } finally {
@@ -121,23 +123,13 @@ const ElariaAI = () => {
 
         {/* Chat container with custom scrollbar */}
         <div className="flex-1 overflow-y-auto p-4 bg-white">
-          {/* Custom scrollbar styles */}
-          <style jsx>{`
-            .chat-container::-webkit-scrollbar {
-              width: 8px;
-            }
-            .chat-container::-webkit-scrollbar-track {
-              background: rgba(200, 200, 200, 0.3);
-              border-radius: 10px;
-            }
-            .chat-container::-webkit-scrollbar-thumb {
-              background: linear-gradient(to bottom, #68d391, #a78bfa);
-              border-radius: 10px;
-            }
-            .chat-container::-webkit-scrollbar-thumb:hover {
-              background: linear-gradient(to bottom, #48bb78, #9f7aea);
-            }
-          `}</style>
+          {/* Custom scrollbar styles (plain CSS for Vite/React) */}
+          <style dangerouslySetInnerHTML={{ __html: `
+            .chat-container::-webkit-scrollbar { width: 8px; }
+            .chat-container::-webkit-scrollbar-track { background: rgba(200, 200, 200, 0.3); border-radius: 10px; }
+            .chat-container::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #68d391, #a78bfa); border-radius: 10px; }
+            .chat-container::-webkit-scrollbar-thumb:hover { background: linear-gradient(to bottom, #48bb78, #9f7aea); }
+          `}} />
 
           {/* Welcome message */}
           {messages.length === 0 && (

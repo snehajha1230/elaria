@@ -1,9 +1,14 @@
-import fetch from 'node-fetch';
-
+// Use global fetch (Node 18+) — no node-fetch dependency
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export const getGeminiResponse = async (userPrompt) => {
-  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+  if (!GEMINI_API_KEY || GEMINI_API_KEY.trim() === '') {
+    console.error('Gemini: GEMINI_API_KEY is not set in environment');
+    throw new Error('AI is not configured. Please set GEMINI_API_KEY on the server.');
+  }
+  // gemini-pro is deprecated; use gemini-1.5-flash or gemini-1.5-pro (set GEMINI_MODEL in .env to override)
+  const model = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+  const url = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
 
   try {
     const response = await fetch(url, {

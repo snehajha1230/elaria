@@ -9,20 +9,20 @@ ELARIA is a personal safe space for mental wellness and emotional support. It of
 ## Features
 
 ### Comfort Space
-- **Crush Notes** — Private notes and reflections
-- **Self Diary** — Personal journaling
-- **Quiet Library** — Your book collection
-- **Sound Corner** — Music and audio (Spotify/YouTube integration)
-- **Comfort Screen** — Calming media
-- **Poetry** — Save and read poems
+- **Let-Go Space** — Private space to pour out your heart with release options
+- **Diary Space** — Personal journaling
+- **Reading Room** — Your book collection
+- **Music Room** — Music and audio (Spotify/YouTube integration)
+- **Screen Room** — Calming media
+- **Poetry Room** — Save and read poems
 
 ### Wellness Toolkit
 - **Mood Tracker** — Track and visualize your mood over time
 - **Diagnose Yourself** — Self-assessment tools
 - **Gratitude Journal** — Daily gratitude entries
-- **Mindfulness** — Guided mindfulness exercises
+<!-- - **Mindfulness** — Guided mindfulness exercises -->
 - **Contacts** — Emergency and support contacts
-- **Feature Guide** — Guided tour of wellness tools
+<!-- - **Feature Guide** — Guided tour of wellness tools -->
 
 ### Community
 - **Helper Directory** — Find and connect with peer helpers
@@ -68,7 +68,7 @@ ELARIA is a personal safe space for mental wellness and emotional support. It of
 
 ```bash
 git clone <your-repo-url>
-cd ELARIA-HOME
+cd elaria
 ```
 
 ### 2. Backend setup
@@ -167,7 +167,7 @@ Point your backend `CLIENT_URL` / `FRONTEND_URL` to your deployed frontend URL w
 ## Project structure
 
 ```
-ELARIA-HOME/
+elaria/
 ├── client/                 # React + Vite frontend
 │   ├── src/
 │   │   ├── components/     # Reusable UI and auth/route components
@@ -213,12 +213,5 @@ ELARIA-HOME/
 
 Real-time features (e.g. chat, typing, notifications) use **Socket.io** on the same server.
 
----
-
-## License
-
-ISC
-
----
 
 *We hear you.*

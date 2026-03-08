@@ -10,6 +10,8 @@ ELARIA is a personal safe space for mental wellness and emotional support. It of
 
 **Pitch Video** : https://drive.google.com/file/d/1FLySicQED45NkFtf5cjPEW7Mwkl2l4ls/view?usp=sharing
 
+**Elaria PPT** : https://drive.google.com/file/d/1UFI_T9uibZPIv9N5QnqUvVbrH-oJBOPZ/view?usp=sharing
+
 ---
 
 ## Features

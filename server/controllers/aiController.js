@@ -8,7 +8,8 @@ export const handleTextAI = async (req, res) => {
   }
 
   try {
-    const reply = await getGroqResponse(message);
+    const topic = req.body.topic || null;
+    const reply = await getGroqResponse(message, { topic });
     res.json({ reply });
   } catch (error) {
     console.error('Groq Error:', error);
